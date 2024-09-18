@@ -1,0 +1,5 @@
+/**
+ * Tests
+ */
+public class Test {
+}

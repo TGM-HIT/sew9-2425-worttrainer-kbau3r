@@ -1,15 +1,22 @@
 @startuml
-'title: Worttrainer Reloaded'
+'title: Worttrainer Reloaded - kbauer'
 
 class Model {
-  +data : String
-  +getData() : String
-  +setData(data : String)
+  +dataList : List<Data>
+  +getDataList() : List<Data>
+  +setDataList(dataList : List<Data>)
+  +addData(Data) : void
+  +removeData(Data) : void
+}
+
+class Data {
+  +wort : String
+  +url : String
+  +checkURL(String url) : boolean
 }
 
 class View {
-  +display : String
-  +displayData(data : String)
+  +displayData()
   +updateView()
 }
 
@@ -22,5 +29,6 @@ class Controller {
 
 Controller --> Model
 Controller --> View
+Model --> Data
 
 @enduml
