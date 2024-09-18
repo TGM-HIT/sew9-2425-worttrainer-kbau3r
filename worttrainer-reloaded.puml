@@ -1,0 +1,26 @@
+@startuml
+'title: Worttrainer Reloaded'
+
+class Model {
+  +data : String
+  +getData() : String
+  +setData(data : String)
+}
+
+class View {
+  +display : String
+  +displayData(data : String)
+  +updateView()
+}
+
+class Controller {
+  +model : Model
+  +view : View
+  +updateModel(data : String)
+  +notifyView()
+}
+
+Controller --> Model
+Controller --> View
+
+@enduml
