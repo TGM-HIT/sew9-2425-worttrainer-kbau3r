@@ -2,17 +2,22 @@
 'title: Worttrainer Reloaded - kbauer'
 
 class Model {
-  +dataList : List<Data>
+  -dataList : List<Data>
+  -auswahl : Data
   +getDataList() : List<Data>
   +setDataList(dataList : List<Data>)
+  +getRandomData() : Data
+  +getSpecificData(int) : Data
   +addData(Data) : void
   +removeData(Data) : void
 }
 
 class Data {
-  +wort : String
-  +url : String
-  +checkURL(String url) : boolean
+  -wort : String
+  -url : String
+  +addName(String) : void
+  +checkName(String) : boolean
+  +addUrl(String) : boolean
 }
 
 class View {
@@ -21,8 +26,8 @@ class View {
 }
 
 class Controller {
-  +model : Model
-  +view : View
+  -model : Model
+  -view : View
   +updateModel(data : String)
   +notifyView()
 }

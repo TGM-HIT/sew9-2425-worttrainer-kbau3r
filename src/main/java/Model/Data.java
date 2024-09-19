@@ -1,19 +1,44 @@
 package Model;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class Data {
     private String name;
-    private String url;
+    private URL url;
 
     public Data(String name, String url) {
-        this.url = url;
         this.name = name;
+        this.addUrl(url);
     }
 
-
+    /*
     public boolean checkURL(String url) {
-        if(url.contains("//")) {
+        if (url.contains("//")) {
             return true;
         }
         return false;
+    } */
+
+    public void addName(String name) {
+        this.name = name;
+    }
+
+    public boolean checkName(String name) {
+        if(this.name == name) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addUrl(String str) {
+        URL url;
+        try {
+            url = new URL(str);
+        } catch (MalformedURLException malformedURLException) {
+            return false;
+        }
+        this.url = url;
+        return true;
     }
 }
