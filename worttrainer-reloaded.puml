@@ -10,6 +10,7 @@ class Model {
   +getSpecificData(int) : Data
   +addData(Data) : void
   +removeData(Data) : void
+  +getAuswahl() : Data
 }
 
 class Data {
@@ -18,6 +19,7 @@ class Data {
   +addName(String) : void
   +checkName(String) : boolean
   +addUrl(String) : boolean
+  +getUrl() : URL
 }
 
 class View {

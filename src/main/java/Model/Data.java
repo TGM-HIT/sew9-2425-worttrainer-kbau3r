@@ -25,7 +25,7 @@ public class Data {
     }
 
     public boolean checkName(String name) {
-        if(this.name == name) {
+        if(this.name.equalsIgnoreCase(name)) {
             return true;
         }
         return false;
@@ -36,9 +36,15 @@ public class Data {
         try {
             url = new URL(str);
         } catch (MalformedURLException malformedURLException) {
+            System.out.println("Wrong URL Format");
             return false;
         }
         this.url = url;
         return true;
     }
+
+    public URL getUrl() {
+        return this.url;
+    }
+
 }
