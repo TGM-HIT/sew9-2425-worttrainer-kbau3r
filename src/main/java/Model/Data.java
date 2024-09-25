@@ -43,6 +43,20 @@ public class Data {
         return true;
     }
 
+    public boolean checkUrl(String str) {
+        try {
+            URL check = new URL(str);
+        } catch (MalformedURLException malformedURLException) {
+            System.out.println("Wrong URL Format");
+            return false;
+        }
+        return true;
+    }
+    
+    public void addUrl(URL url) {
+        this.url = url;
+    }
+
     public URL getUrl() {
         return this.url;
     }
