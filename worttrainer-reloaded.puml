@@ -19,6 +19,8 @@ class Data {
   +addName(String) : void
   +checkName(String) : boolean
   +addUrl(String) : boolean
+  +addUrl(URL) : void
+  +checkUrl(String) : boolean
   +getUrl() : URL
 }
 
