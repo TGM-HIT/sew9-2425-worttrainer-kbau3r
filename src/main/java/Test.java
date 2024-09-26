@@ -1,5 +1,0 @@
-/**
- * Tests
- */
-public class Test {
-}
