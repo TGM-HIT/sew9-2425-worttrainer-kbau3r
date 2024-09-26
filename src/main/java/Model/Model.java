@@ -1,11 +1,18 @@
 package Model;
 
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+
+import org.json.JSONObject;
 
 public class Model {
     private List<Data> dataList;
     private Data selection;
+    
+
     public Model(List<Data> data) {
         this.dataList = data;
     }

@@ -61,4 +61,9 @@ public class Data {
         return this.url;
     }
 
+    // new
+    public String getName() {
+        return this.name;
+    }
+
 }
