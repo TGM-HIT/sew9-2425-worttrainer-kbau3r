@@ -35,6 +35,7 @@ public class Data {
         return true;
     }
 
+    // nur sicherheitshalber gemacht, wird wahrscheinlich nicht verwendet
     public boolean checkUrl(String str) {
         try {
             new URL(str);

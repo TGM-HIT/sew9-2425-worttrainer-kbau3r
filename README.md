@@ -15,21 +15,13 @@ Hierfür habe ich mich für diese Art der URL Speicherung entschieden, da ich so
   
 
 ```java
-
 private String name;
-
 private URL url;
 
-  
-
 public Data(String name, String url) {
-
-this.name = name;
-
-this.addUrl(url);
-
+    this.name = name;
+    this.addUrl(url);
 }
-
 ```
 
   
@@ -41,26 +33,63 @@ Man kann eine Url als String hinzufügen, die jedoch gleich in eine java.net.URL
   
 
 ```java
-
 public boolean addUrl(String str) {
-
-URL url;
-
-try {
-
-url = new URL(str);
-
-} catch (MalformedURLException malformedURLException) {
-
-System.out.println("Wrong URL Format");
-
-return false;
-
+    URL url;
+    try {
+        url = new URL(str);
+    } catch (MalformedURLException malformedURLException) {
+        System.out.println("Wrong URL Format");
+        return false;
+    }
+    this.url = url;
+    return true;
 }
+```
 
-this.url = url;
+### Model
 
-return true;
+Für die Persistenz habe ich mich dazu entschieden nur JSONObject zu verwenden und keine fancy library, da ich es so gut wie möglich selber schreiben wollte.
 
-}
+Ich habe mich für das NDJSON datenformat entschieden, da es sich für diesen Anwendungszweck lohnt und effizienter ist, da es einfacher ist
+
+```java
+public void addDataToJson(Data data){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", data.getName());
+        jsonObject.put("url", data.getUrl().toString());
+
+        try (FileWriter fileWriter = new FileWriter(path, true)) { // true, da es an Zeile anfügt ~kbauer
+            fileWriter.write(jsonObject.toString() + System.lineSeparator());
+            System.out.println("Data has been written to the file: " + path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Data> readDataFromJson() {
+        List<Data> dataList = new ArrayList<Data>();
+        File file = new File(this.path);
+
+        if (!file.exists()) {
+            System.out.println("Path isnt working. Reupdate it please");
+        }
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String currentLine;
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                currentLine = currentLine.trim();
+                if (!currentLine.isEmpty()) {
+                    JSONObject jsonObject = new JSONObject(currentLine);
+                    dataList.add(new Data(jsonObject.getString("name"), jsonObject.getString("url")));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dataList;
+    }
+
+    public boolean compareDatalist(List<Data> dataList2) {
+        return this.dataList.equals(dataList2);
+    }
 ```
