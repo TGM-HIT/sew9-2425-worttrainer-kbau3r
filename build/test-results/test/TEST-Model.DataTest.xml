@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.DataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-09-28T21:42:16" hostname="kbauer-pad" time="0.123">
+  <properties/>
+  <testcase name="testCheckUrlInvalid()" classname="Model.DataTest" time="0.074"/>
+  <testcase name="testAddName()" classname="Model.DataTest" time="0.006"/>
+  <testcase name="testCheckUrlValid()" classname="Model.DataTest" time="0.003"/>
+  <testcase name="testAddUrlInvalid()" classname="Model.DataTest" time="0.004"/>
+  <testcase name="testAddition()" classname="Model.DataTest" time="0.006"/>
+  <testcase name="testCheckName()" classname="Model.DataTest" time="0.003"/>
+  <testcase name="testAddUrlValid()" classname="Model.DataTest" time="0.003"/>
+  <system-out><![CDATA[Wrong URL Format
+Wrong URL Format
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

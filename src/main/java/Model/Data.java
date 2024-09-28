@@ -12,14 +12,6 @@ public class Data {
         this.addUrl(url);
     }
 
-    /*
-    public boolean checkURL(String url) {
-        if (url.contains("//")) {
-            return true;
-        }
-        return false;
-    } */
-
     public void addName(String name) {
         this.name = name;
     }
@@ -45,7 +37,7 @@ public class Data {
 
     public boolean checkUrl(String str) {
         try {
-            URL check = new URL(str);
+            new URL(str);
         } catch (MalformedURLException malformedURLException) {
             System.out.println("Wrong URL Format");
             return false;

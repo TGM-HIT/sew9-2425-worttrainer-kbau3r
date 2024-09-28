@@ -4,6 +4,7 @@
 class Model {
   -dataList : List<Data>
   -auswahl : Data
+  -path : String
   +getDataList() : List<Data>
   +setDataList(dataList : List<Data>)
   +getRandomData() : Data
@@ -11,6 +12,11 @@ class Model {
   +addData(Data) : void
   +removeData(Data) : void
   +getAuswahl() : Data
+  +setPath(String) : void
+  +getPath() : String
+  +addDataToJson(Data) : void
+  +readDataFromJson() : List<Data>
+  +compareData() : boolean
 }
 
 class Data {

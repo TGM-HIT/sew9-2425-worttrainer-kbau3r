@@ -11,7 +11,6 @@ import org.json.JSONObject;
 public class Model {
     private List<Data> dataList;
     private Data selection;
-    
 
     public Model(List<Data> data) {
         this.dataList = data;
