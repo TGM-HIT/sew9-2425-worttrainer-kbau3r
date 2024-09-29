@@ -27,5 +27,8 @@ public class Main {
         model.addData(newData);
         List<Data> dataList2 = model.readDataFromJson();
         System.out.println(dataList2);
+        System.out.println(model.getDataList());
+        System.out.println(newData);
+        System.out.println(dataList2.contains(newData));
     }
 }

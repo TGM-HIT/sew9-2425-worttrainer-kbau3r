@@ -64,4 +64,12 @@ public class Data {
         return "{name='" + name + "', url='" + url + "'}";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Data data = (Data) o;
+        return name.equals(data.name) && url.equals(data.url);
+    }
+
 }

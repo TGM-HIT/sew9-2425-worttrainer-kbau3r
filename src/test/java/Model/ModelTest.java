@@ -1,6 +1,6 @@
 package Model;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.BeforeAll;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.net.URL;
@@ -23,6 +23,11 @@ public class ModelTest {
         dataList.add(data2);
 
         model = new Model(dataList); // verwendet den test.ndjson
+    }
+
+    @BeforeEach
+    public void clearBeforeEachTest() {
+        model.clearPersistence(); // File wird geleert bevor tests
     }
 
     @Test
@@ -71,13 +76,22 @@ public class ModelTest {
 
     @Test
     public void testCompareDatalist() {
+        data1 = new Data("Example 1", "http://example.com/1");
+        data2 = new Data("Example 2", "http://example.com/2");
+
         List<Data> dataList = new ArrayList<>();
         dataList.add(data1);
         dataList.add(data2);
 
-        assertTrue(model.compareDatalist(dataList));
+        model = new Model(dataList);
 
-        dataList.remove(data1);
-        assertFalse(model.compareDatalist(dataList));
+        List<Data> dataList2 = new ArrayList<>();
+        dataList2.add(data1);
+        dataList2.add(data2);
+
+        assertTrue(model.compareDatalist(dataList2));
+
+        dataList2.remove(data1);
+        assertFalse(model.compareDatalist(dataList2));
     }
 }

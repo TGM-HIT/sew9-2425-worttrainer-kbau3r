@@ -1,9 +1,6 @@
 package Model;
 
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.net.URL;
@@ -18,6 +15,9 @@ public class Model {
     public Model(List<Data> data) {
         this.dataList = data;
         this.path = "test.ndjson";
+        for (Data dataEntry : this.dataList) {
+            addDataToJson(dataEntry);
+        }
     }
 
     public List<Data> getDataList() {
@@ -26,6 +26,9 @@ public class Model {
 
     public void setDataList(List<Data> dataList) {
         this.dataList = dataList;
+        for (Data dataEntry : this.dataList) {
+            addDataToJson(dataEntry);
+        }
     }
 
     public Data getRandomData() {
@@ -99,4 +102,12 @@ public class Model {
         return this.dataList.equals(dataList2);
     }
 
+    public void clearPersistence() {
+        try (FileWriter fileWriter = new FileWriter(path, false)) { // 'false' für überschreiben
+            // durch das überschreiben, wird das file gecleart
+            System.out.println("Persistence has been cleared: " + path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }    
 }
