@@ -59,4 +59,9 @@ public class Data {
         return this.name;
     }
 
+    @Override
+    public String toString() {
+        return "{name='" + name + "', url='" + url + "'}";
+    }
+
 }

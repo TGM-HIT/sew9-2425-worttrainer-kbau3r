@@ -13,5 +13,19 @@ public class Main {
         Model model = new Model(list);
         Controller controller = new Controller(model, view);
         System.out.println("Hello, Gradle!");
+
+        Data data1 = new Data("Example 1", "http://example.com/1");
+        Data data2 = new Data("Example 2", "http://example.com/2");
+
+        List<Data> dataList = new ArrayList<>();
+        dataList.add(data1);
+        dataList.add(data2);
+
+        model = new Model(dataList); // verwendet den test.ndjson
+
+        Data newData = new Data("Example 3", "http://example.com/3");
+        model.addData(newData);
+        List<Data> dataList2 = model.readDataFromJson();
+        System.out.println(dataList2);
     }
 }
