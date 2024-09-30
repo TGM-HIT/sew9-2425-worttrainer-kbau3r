@@ -34,6 +34,17 @@ class Data {
   +equals(Object) : boolean
 }
 
+class Statistics {
+  - int correctAttempts
+  - int wrongAttempts
+  + Statistics()
+  + Statistics(int, int)
+  + int getCorrectAttempts()
+  + int getWrongAttempts()
+  + void update(boolean)
+  + String getStatistics()
+}
+
 class View {
 }
 
@@ -45,5 +56,6 @@ class Controller {
 Controller --> Model
 Controller --> View
 Model --> Data
+Model --> Statistics
 
 @enduml
