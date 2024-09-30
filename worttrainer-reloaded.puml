@@ -17,6 +17,7 @@ class Model {
   +addDataToJson(Data) : void
   +readDataFromJson() : List<Data>
   +compareData(List<Data>) : boolean
+  +clearPersistence() : void
 }
 
 class Data {
@@ -28,18 +29,17 @@ class Data {
   +addUrl(URL) : void
   +checkUrl(String) : boolean
   +getUrl() : URL
+  +getName() : String
+  +toString() : String
+  +equals(Object) : boolean
 }
 
 class View {
-  +displayData()
-  +updateView()
 }
 
 class Controller {
   -model : Model
   -view : View
-  +updateModel(data : String)
-  +notifyView()
 }
 
 Controller --> Model
