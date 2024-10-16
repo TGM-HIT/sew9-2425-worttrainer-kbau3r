@@ -7,8 +7,16 @@ import Controller.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Die Main-Klasse startet die Worttrainer-Anwendung.
+ */
 public class Main {
 
+    /**
+     * Der Einstiegspunkt der Anwendung.
+     *
+     * @param args Kommandozeilenargumente
+     */
     public static void main(String[] args) {
         List<Data> dataList = new ArrayList<>();
         dataList.add(new Data("Hund", "https://www.naturavetal.at/media/cache/images/category_header/05-infoseiten/04-ratgeber/heller-hund-im-wald-qf.jpg"));

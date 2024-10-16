@@ -3,17 +3,29 @@ package Controller;
 import Model.*;
 import View.*;
 
+/**
+ * Die Controller-Klasse steuert die Interaktion zwischen der View und dem Model.
+ */
 public class Controller {
+
     private Model model;
     private View view;
 
+    /**
+     * Konstruktor, der das Model und die View initialisiert.
+     *
+     * @param model Das Model, das die Daten enthält
+     * @param view Die View, die die Benutzeroberfläche darstellt
+     */
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
     }
 
+    /**
+     * Startet das Training und steuert den Ablauf der Trainingssession.
+     */
     public void startTraining() {
-        // Frage den Benutzer, ob er mit dem letzten Stand fortfahren möchte oder nicht
         String response = view.getInput("Möchten Sie mit dem letzten Stand fortfahren? (ja/nein)");
 
         if (response == null || response.trim().equalsIgnoreCase("nein")) {
@@ -32,40 +44,39 @@ public class Controller {
 
             boolean correctAnswer = false;
             while (!correctAnswer) {
-                // Fordere den Benutzer zur Eingabe des Wortes auf
                 String userInput = view.getInput();
 
-                // Falls die Eingabe null oder leer ist, beende das Training
                 if (userInput == null || userInput.trim().isEmpty()) {
                     trainingActive = false;
                     break;
                 }
 
-                // Überprüfe, ob die Benutzereingabe korrekt ist
                 if (data.checkName(userInput)) {
                     view.showMessage("Richtig!");
-                    model.getStatistics().update(true);  // Statistik für richtigen Versuch aktualisieren
+                    model.getStatistics().update(true);
                     correctAnswer = true;
                 } else {
                     view.showMessage("Falsch! Versuchen Sie es noch einmal.");
-                    model.getStatistics().update(false);  // Statistik für falschen Versuch aktualisieren
+                    model.getStatistics().update(false);
                 }
 
-                // Speichere die aktualisierte Statistik nach jedem Versuch
                 model.addStatisticsToJson();
             }
 
-            // Falls das Training abgebrochen wurde, beende die Schleife
             if (!trainingActive) {
                 break;
             }
         }
 
-        // Zeige am Ende die Statistiken an
         view.displayStatistics(model.readStatisticsFromJson());
         view.showMessage("Training beendet!");
     }
 
+    /**
+     * Überprüft die Antwort des Benutzers und aktualisiert die Statistik entsprechend.
+     *
+     * @param input Die Benutzereingabe, die überprüft wird
+     */
     public void checkAnswer(String input) {
         Data selectedData = model.getAuswahl();
         if (selectedData.checkName(input)) {
@@ -78,6 +89,9 @@ public class Controller {
         model.addStatisticsToJson();
     }
 
+    /**
+     * Beendet das Training und zeigt die finalen Statistiken an.
+     */
     public void endTraining() {
         view.displayStatistics(model.readStatisticsFromJson());
         view.showMessage("Training beendet. Statistiken wurden gespeichert.");

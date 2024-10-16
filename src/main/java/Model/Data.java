@@ -3,26 +3,49 @@ package Model;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Die Data-Klasse repräsentiert ein Wort- und URL-Paar.
+ */
 public class Data {
     private String name;
     private URL url;
 
+    /**
+     * Konstruktor, der den Namen und die URL setzt.
+     *
+     * @param name Das Wort, das mit der URL verbunden ist
+     * @param url Die URL, die das Bild des Wortes referenziert
+     */
     public Data(String name, String url) {
         this.name = name;
         this.addUrl(url);
     }
 
+    /**
+     * Setzt den Namen.
+     *
+     * @param name Das zu setzende Wort
+     */
     public void addName(String name) {
         this.name = name;
     }
 
+    /**
+     * Überprüft, ob der gegebene Name mit dem gespeicherten Namen übereinstimmt.
+     *
+     * @param name Der zu überprüfende Name
+     * @return true, wenn die Namen übereinstimmen, sonst false
+     */
     public boolean checkName(String name) {
-        if(this.name.equalsIgnoreCase(name)) {
-            return true;
-        }
-        return false;
+        return this.name.equalsIgnoreCase(name);
     }
 
+    /**
+     * Fügt die URL hinzu und validiert sie.
+     *
+     * @param str Die zu setzende URL als String
+     * @return true, wenn die URL gültig ist, sonst false
+     */
     public boolean addUrl(String str) {
         URL url;
         try {
@@ -35,7 +58,12 @@ public class Data {
         return true;
     }
 
-    // nur sicherheitshalber gemacht, wird wahrscheinlich nicht verwendet
+    /**
+     * Überprüft, ob die gegebene URL gültig ist.
+     *
+     * @param str Die zu überprüfende URL als String
+     * @return true, wenn die URL gültig ist, sonst false
+     */
     public boolean checkUrl(String str) {
         try {
             new URL(str);
@@ -45,16 +73,30 @@ public class Data {
         }
         return true;
     }
-    
+
+    /**
+     * Setzt die URL.
+     *
+     * @param url Die zu setzende URL
+     */
     public void addUrl(URL url) {
         this.url = url;
     }
 
+    /**
+     * Gibt die URL zurück.
+     *
+     * @return Die gespeicherte URL
+     */
     public URL getUrl() {
         return this.url;
     }
 
-    // new
+    /**
+     * Gibt den Namen zurück.
+     *
+     * @return Der gespeicherte Name
+     */
     public String getName() {
         return this.name;
     }
@@ -71,5 +113,4 @@ public class Data {
         Data data = (Data) o;
         return name.equals(data.name) && url.equals(data.url);
     }
-
 }
