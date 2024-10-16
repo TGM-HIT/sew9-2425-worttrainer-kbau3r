@@ -53,7 +53,7 @@ Für die Persistenz habe ich mich dazu entschieden nur JSONObject zu verwenden u
 Ich habe mich für das NDJSON datenformat entschieden, da es sich für diesen Anwendungszweck lohnt und effizienter ist, da es einfacher ist
 
 ```java
-public void addDataToJson(Data data){
+    public void addDataToJson(Data data){
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", data.getName());
         jsonObject.put("url", data.getUrl().toString());
@@ -93,3 +93,4 @@ public void addDataToJson(Data data){
         return this.dataList.equals(dataList2);
     }
 ```
+
