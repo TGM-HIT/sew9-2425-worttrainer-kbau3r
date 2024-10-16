@@ -94,3 +94,15 @@ Ich habe mich für das NDJSON datenformat entschieden, da es sich für diesen An
     }
 ```
 
+### Statistics
+
+Die Klasse Statistics dient zur Verfolgung der Benutzerleistungen im Rechtschreibtrainer. Sie hält fest, wie viele Versuche korrekt und wie viele falsch waren.
+
+Beispiel:
+
+```java
+    Statistics stats = new Statistics();
+    stats.update(true);  // Erhöht correctAttempts auf 1
+    stats.update(false); // Erhöht wrongAttempts auf 1
+    System.out.println(stats.getStatistics()); // Ausgabe: "Richtig: 1, Falsch: 1"
+```
