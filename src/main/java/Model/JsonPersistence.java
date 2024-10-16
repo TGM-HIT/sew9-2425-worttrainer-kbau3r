@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * Die JsonPersistenceStrategy implementiert das PersistenceStrategy-Interface und bietet Methoden zum Speichern
  * und Laden von Daten und Statistiken im JSON-Format.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class JsonPersistence implements PersistenceInterface {
 

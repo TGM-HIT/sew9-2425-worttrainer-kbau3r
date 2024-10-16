@@ -5,6 +5,8 @@ import java.net.URL;
 
 /**
  * Die Data-Klasse repräsentiert ein Wort- und URL-Paar.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class Data {
     private String name;

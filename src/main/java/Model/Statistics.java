@@ -2,6 +2,8 @@ package Model;
 
 /**
  * Die Statistics-Klasse verwaltet die Anzahl der richtigen und falschen Versuche.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class Statistics {
     private int correctAttempts;

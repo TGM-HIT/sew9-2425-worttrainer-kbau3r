@@ -7,6 +7,8 @@ import java.awt.Image;
 
 /**
  * Die View-Klasse steuert die Anzeige und Benutzerinteraktionen in der grafischen Oberfläche.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class View {
 

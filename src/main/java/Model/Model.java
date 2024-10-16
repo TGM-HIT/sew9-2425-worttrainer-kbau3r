@@ -8,6 +8,8 @@ import java.io.*;
 
 /**
  * Die Model-Klasse verwaltet die Daten und die Persistenz für den Worttrainer.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class Model {
     private List<Data> dataList;

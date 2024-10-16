@@ -60,7 +60,7 @@ class Controller {
   +endTraining() : void
 }
 
-class PersistenceInterface {
+interface PersistenceInterface {
   + saveData(List<Data>, String) : void
   + loadData(String) : List<Data>
   + saveStatistics(Statistics, String) : void
@@ -76,11 +76,11 @@ class JsonPersistence {
   + clear(String) : void
 }
 
-Controller --> "1" Model : model
-Controller --> "1" View : view
-Model "1" --> "*" Data : dataList
-Model "1" o-- "1" Statistics : statistics
-Model --> "1" PersistenceInterface : persistenceInterface
-PersistenceInterface <|-- JsonPersistence
+Controller --> "1" Model : - model
+Controller --> "1" View : - view
+Model "1" --> "*" Data : - dataList
+Model "1" o--> "1" Statistics : - statistics
+Model --> "1" PersistenceInterface : - persistenceInterface
+PersistenceInterface <|.. JsonPersistence
 
 @enduml

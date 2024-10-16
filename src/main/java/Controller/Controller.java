@@ -5,6 +5,8 @@ import View.*;
 
 /**
  * Die Controller-Klasse steuert die Interaktion zwischen der View und dem Model.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class Controller {
 

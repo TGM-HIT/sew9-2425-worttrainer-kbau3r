@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * Das PersistenceStrategy-Interface definiert die Methoden, die jede Persistenzstrategie implementieren muss,
  * um Daten und Statistiken zu speichern, zu laden und zu löschen.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public interface PersistenceInterface {
 

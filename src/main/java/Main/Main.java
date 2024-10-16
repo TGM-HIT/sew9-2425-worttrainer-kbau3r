@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Die Main-Klasse startet die Worttrainer-Anwendung.
+ * @author Kevin Bauer
+ * @version 16-10-2024
  */
 public class Main {
 
