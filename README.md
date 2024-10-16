@@ -115,3 +115,24 @@ Die View-Klasse stellt die grafische Benutzeroberfläche des Worttrainers dar. S
 
 Diese Klasse dient als einfache Schnittstelle zur Interaktion mit dem Benutzer und ermöglicht es, Daten anzuzeigen und Benutzereingaben zu erfassen.
 
+
+## Model
+
+### Model
+
+Die Controller-Klasse steuert die Interaktion zwischen dem Model (Datenlogik) und der View (Benutzeroberfläche). Sie verwaltet den Ablauf des Trainings, die Eingabeüberprüfung und das Speichern von Statistiken.
+Konstruktor:
+
+    Controller(Model model, View view)
+    Initialisiert den Controller mit dem Model und der View, um die Daten- und Benutzerinteraktionen zu steuern.
+
+Methoden:
+
+    startTraining()
+    Startet das Training und zeigt dem Benutzer nacheinander Wörter an. Der Benutzer gibt seine Antwort ein, und die Antwort wird überprüft. Das Training läuft, bis der Benutzer es abbricht. Statistiken werden nach jedem Versuch aktualisiert und am Ende angezeigt.
+
+    checkAnswer(String input)
+    Überprüft eine Benutzereingabe gegen das aktuell ausgewählte Wort und zeigt an, ob die Antwort korrekt war. Aktualisiert die Statistiken entsprechend.
+
+    endTraining()
+    Beendet die Trainingseinheit und zeigt die finalen Statistiken an. Die Statistiken werden gespeichert.
