@@ -64,9 +64,11 @@ class Controller {
   +endTraining() : void
 }
 
-Controller --> Model
-Controller --> View
-Model --> Data
-Model --> Statistics
+Controller --> "1" Model : model
+Controller --> "1" View : view
+Model "1" --> "*" Data : dataList
+Model "1" o-- "1" Statistics : statistics
+View --> "1" Data
+View --> "1" Statistics
 
 @enduml
