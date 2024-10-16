@@ -112,6 +112,12 @@ public class Model {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try (FileWriter fileWriter = new FileWriter(path2, false)) { // 'false' für überschreiben
+            // durch das überschreiben, wird das file gecleart
+            System.out.println("Persistence has been cleared: " + path2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addStatisticsToJson(){
@@ -155,6 +161,7 @@ public class Model {
                 JSONObject jsonObject = new JSONObject(lastLine);
                 int correctAttempts = jsonObject.getInt("correct");
                 int incorrectAttempts = jsonObject.getInt("incorrect");
+                this.statistics = new Statistics(correctAttempts, incorrectAttempts);
                 return new Statistics(correctAttempts, incorrectAttempts);
             } catch (Exception e) {
                 e.printStackTrace();

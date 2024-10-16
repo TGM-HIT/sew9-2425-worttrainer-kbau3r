@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Model.StatisticsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-10-16T12:10:31" hostname="kbauer-pad" time="0.033">
+<testsuite name="Model.StatisticsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-10-16T12:36:53" hostname="kbauer-pad" time="0.012">
   <properties/>
-  <testcase name="testUpdateWrong()" classname="Model.StatisticsTest" time="0.003"/>
-  <testcase name="testParameterizedConstructor()" classname="Model.StatisticsTest" time="0.003"/>
+  <testcase name="testUpdateWrong()" classname="Model.StatisticsTest" time="0.0"/>
+  <testcase name="testParameterizedConstructor()" classname="Model.StatisticsTest" time="0.001"/>
   <testcase name="testUpdateCorrect()" classname="Model.StatisticsTest" time="0.001"/>
-  <testcase name="testGetStatistics()" classname="Model.StatisticsTest" time="0.015"/>
-  <testcase name="testDefaultConstructor()" classname="Model.StatisticsTest" time="0.002"/>
+  <testcase name="testGetStatistics()" classname="Model.StatisticsTest" time="0.005"/>
+  <testcase name="testDefaultConstructor()" classname="Model.StatisticsTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
