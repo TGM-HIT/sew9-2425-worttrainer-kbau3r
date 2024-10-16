@@ -48,6 +48,11 @@ class Statistics {
 }
 
 class View {
+  + showData(Data) : void
+  + getInput() : String
+  + displayStatistics(Statistics) : void
+  + showMessage(String) : void
+  + displayError(String) : void
 }
 
 class Controller {
