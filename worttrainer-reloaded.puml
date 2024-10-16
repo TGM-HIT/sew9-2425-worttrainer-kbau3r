@@ -58,6 +58,10 @@ class View {
 class Controller {
   -model : Model
   -view : View
+  +Controller(Model, View)
+  +startTraining() : void
+  +checkAnswer(String) : void
+  +endTraining() : void
 }
 
 Controller --> Model
