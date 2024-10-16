@@ -28,6 +28,11 @@ application {
     mainClass = 'Main' // Falls Main in einem Paket ist, z.B. 'com.example.Main'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 test {
     useJUnitPlatform() // Um sicherzustellen, dass JUnit 5 verwendet wird
 }

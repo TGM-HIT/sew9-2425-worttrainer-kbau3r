@@ -10,11 +10,14 @@ import java.io.*;
 public class Model {
     private List<Data> dataList;
     private Data selection;
-    private String path;
+    private String path, path2;
+    private Statistics statistics;
 
     public Model(List<Data> data) {
         this.dataList = data;
+        this.statistics = new Statistics();
         this.path = "test.ndjson";
+        this.path2 = "stats.ndjson";
         for (Data dataEntry : this.dataList) {
             addDataToJson(dataEntry);
         }
@@ -109,5 +112,57 @@ public class Model {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }    
+    }
+
+    public void addStatisticsToJson(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("correct", this.statistics.getCorrectAttempts());
+        jsonObject.put("incorrect", this.statistics.getWrongAttempts());
+
+        try (FileWriter fileWriter = new FileWriter(path2, true)) { // true, da es an Zeile anfügt ~kbauer
+            fileWriter.write(jsonObject.toString() + System.lineSeparator());
+            System.out.println("Statistics has been written to the file: " + path2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Statistics readStatisticsFromJson() {
+        File file = new File(this.path2); // stats.ndjson file
+
+        if (!file.exists()) {
+            System.out.println("Statistics file does not exist.");
+            return null;
+        }
+
+        String lastLine = null;
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String currentLine;
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                currentLine = currentLine.trim();
+                if (!currentLine.isEmpty()) {
+                    lastLine = currentLine; // update, until the last line
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        if (lastLine != null) {
+            try {
+                JSONObject jsonObject = new JSONObject(lastLine);
+                int correctAttempts = jsonObject.getInt("correct");
+                int incorrectAttempts = jsonObject.getInt("incorrect");
+                return new Statistics(correctAttempts, incorrectAttempts);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        return null;
+    }
+
 }

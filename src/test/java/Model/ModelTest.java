@@ -86,6 +86,7 @@ public class ModelTest {
         model = new Model(dataList);
 
         List<Data> dataList2 = new ArrayList<>();
+
         dataList2.add(data1);
         dataList2.add(data2);
 
