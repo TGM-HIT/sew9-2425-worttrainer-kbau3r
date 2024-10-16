@@ -1,13 +1,10 @@
-/**
- * Kommentare von kbauer verfasst
- */
 plugins {
     id 'java'
-    id 'application' // Damit das Projekt als Java-Anwendung ausgeführt werden kann
+    id 'application'
 }
 
 repositories {
-    mavenCentral() // Um Abhängigkeiten von Maven Central zu beziehen
+    mavenCentral()
 }
 
 dependencies {
@@ -15,17 +12,13 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
-    // JSON Unterstützung für die Persistenz
+    // JSON-Unterstützung
     implementation 'org.json:json:20220320'
-
-    // SQLite Datenbanktreiber, falls man SQLite für die Persistenz verwenden möchte
-    implementation 'org.xerial:sqlite-jdbc:3.39.2.0'
 }
 
 application {
-    // Setzt die Hauptklasse, die beim Ausführen des Projekts verwendet wird
-    // Verwende die vollqualifizierte Klassenname, z.B. 'com.example.Main' falls Main in einem Paket ist
-    mainClass = 'Main' // Falls Main in einem Paket ist, z.B. 'com.example.Main'
+    // Setze die Hauptklasse, falls nötig voll qualifiziert
+    mainClass = 'Main.Main'
 }
 
 java {
@@ -34,5 +27,5 @@ java {
 }
 
 test {
-    useJUnitPlatform() // Um sicherzustellen, dass JUnit 5 verwendet wird
+    useJUnitPlatform()
 }
