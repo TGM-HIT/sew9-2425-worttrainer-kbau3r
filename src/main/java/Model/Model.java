@@ -165,4 +165,8 @@ public class Model {
         return null;
     }
 
+    public Statistics getStatistics() {
+        return this.statistics;
+    }
+
 }
