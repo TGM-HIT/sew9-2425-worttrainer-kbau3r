@@ -18,6 +18,8 @@ class Model {
   +readDataFromJson() : List<Data>
   +compareData(List<Data>) : boolean
   +clearPersistence() : void
+  +addStatisticsToJson() : void
+  +readStatisticsFromJson() : Statistics
 }
 
 class Data {
