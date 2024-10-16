@@ -106,3 +106,12 @@ Beispiel:
     stats.update(false); // Erhöht wrongAttempts auf 1
     System.out.println(stats.getStatistics()); // Ausgabe: "Richtig: 1, Falsch: 1"
 ```
+
+## View
+
+### View
+
+Die View-Klasse stellt die grafische Benutzeroberfläche des Worttrainers dar. Sie verwendet JOptionPane, um Eingaben und Ausgaben durch einfache Dialogfenster zu ermöglichen. Diese Klasse ist zuständig für die Anzeige von Daten, Statistiken sowie für die Eingabe des Benutzers.
+
+Diese Klasse dient als einfache Schnittstelle zur Interaktion mit dem Benutzer und ermöglicht es, Daten anzuzeigen und Benutzereingaben zu erfassen.
+
