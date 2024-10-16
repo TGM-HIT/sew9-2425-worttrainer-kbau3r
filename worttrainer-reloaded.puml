@@ -4,7 +4,7 @@
 class Model {
   -dataList : List<Data>
   -auswahl : Data
-  -path : String
+  -persistenceStrategy : PersistenceStrategy
   +getDataList() : List<Data>
   +setDataList(List<Data>) : void
   +getRandomData() : Data
@@ -12,18 +12,14 @@ class Model {
   +addData(Data) : void
   +removeData(Data) : void
   +getAuswahl() : Data
-  +setPath(String) : void
-  +getPath() : String
-  +addDataToJson(Data) : void
-  +readDataFromJson() : List<Data>
-  +compareData(List<Data>) : boolean
   +clearPersistence() : void
-  +addStatisticsToJson() : void
-  +readStatisticsFromJson() : Statistics
+  +addStatistics() : void
+  +loadStatistics() : void
+  +getStatistics() : Statistics
 }
 
 class Data {
-  -wort : String
+  -name : String
   -url : String
   +addName(String) : void
   +checkName(String) : boolean
@@ -64,11 +60,27 @@ class Controller {
   +endTraining() : void
 }
 
+class PersistenceInterface {
+  + saveData(List<Data>, String) : void
+  + loadData(String) : List<Data>
+  + saveStatistics(Statistics, String) : void
+  + loadStatistics(String) : Statistics
+  + clear(String) : void
+}
+
+class JsonPersistence {
+  + saveData(List<Data>, String) : void
+  + loadData(String) : List<Data>
+  + saveStatistics(Statistics, String) : void
+  + loadStatistics(String) : Statistics
+  + clear(String) : void
+}
+
 Controller --> "1" Model : model
 Controller --> "1" View : view
 Model "1" --> "*" Data : dataList
 Model "1" o-- "1" Statistics : statistics
-View --> "1" Data
-View --> "1" Statistics
+Model --> "1" PersistenceInterface : persistenceInterface
+PersistenceInterface <|-- JsonPersistence
 
 @enduml
