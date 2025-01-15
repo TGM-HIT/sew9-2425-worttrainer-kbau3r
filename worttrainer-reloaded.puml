@@ -1,86 +1,36 @@
 @startuml
-'title: Worttrainer Reloaded - kbauer'
+|Benutzer|
+start
+:Webapp öffnen;
+:Registrieren oder Anmelden;
 
-class Model {
-  -dataList : List<Data>
-  -auswahl : Data
-  -persistenceStrategy : PersistenceStrategy
-  +getDataList() : List<Data>
-  +setDataList(List<Data>) : void
-  +getRandomData() : Data
-  +getSpecificData(int) : Data
-  +addData(Data) : void
-  +removeData(Data) : void
-  +getAuswahl() : Data
-  +clearPersistence() : void
-  +addStatistics() : void
-  +loadStatistics() : void
-  +getStatistics() : Statistics
-}
+if (Brewit gekauft?) then (Ja)
+    :Zugriff auf alle Funktionen;
+    :Rezept erstellen und teilen;
+    :Rezept von anderen laden;
+    :Brauprozess starten;
+    :Brauprozess überwachen;
+else (Nein)
+    :Brewit im Shop kaufen;
+    :Bestellbestätigung erhalten;
+endif
 
-class Data {
-  -name : String
-  -url : String
-  +addName(String) : void
-  +checkName(String) : boolean
-  +addUrl(String) : boolean
-  +addUrl(URL) : void
-  +checkUrl(String) : boolean
-  +getUrl() : URL
-  +getName() : String
-  +toString() : String
-  +equals(Object) : boolean
-}
+stop
+|Webapp|
+start
+:Benutzerverwaltung;
+:Zugriff auf Rezept-Datenbank;
+if (Rezept erstellt?) then (Ja)
+    :Rezept speichern;
+    :Rezept teilen;
+endif
+stop
 
-class Statistics {
-  - int correctAttempts
-  - int wrongAttempts
-  + Statistics()
-  + Statistics(int, int)
-  + int getCorrectAttempts()
-  + int getWrongAttempts()
-  + void update(boolean)
-  + String getStatistics()
-}
-
-class View {
-  + showData(Data) : void
-  + getInput() : String
-  + displayStatistics(Statistics) : void
-  + showMessage(String) : void
-  + displayError(String) : void
-}
-
-class Controller {
-  -model : Model
-  -view : View
-  +Controller(Model, View)
-  +startTraining() : void
-  +checkAnswer(String) : void
-  +endTraining() : void
-}
-
-interface PersistenceInterface {
-  + saveData(List<Data>, String) : void
-  + loadData(String) : List<Data>
-  + saveStatistics(Statistics, String) : void
-  + loadStatistics(String) : Statistics
-  + clear(String) : void
-}
-
-class JsonPersistence {
-  + saveData(List<Data>, String) : void
-  + loadData(String) : List<Data>
-  + saveStatistics(Statistics, String) : void
-  + loadStatistics(String) : Statistics
-  + clear(String) : void
-}
-
-Controller --> "1" Model : - model
-Controller --> "1" View : - view
-Model "1" --> "*" Data : - dataList
-Model "1" o--> "1" Statistics : - statistics
-Model --> "1" PersistenceInterface : - persistenceInterface
-PersistenceInterface <|.. JsonPersistence
-
+|Brewit (Maschine)|
+start
+:Rezept empfangen;
+:Brauprozess starten;
+:Sensoren überwachen;
+:Status an Webapp senden;
+stop
 @enduml

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Model.DataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-10-16T13:16:42" hostname="kbauer-pad" time="0.026">
+<testsuite name="Model.DataTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:21:06" hostname="kbauer-pad" time="0.044">
   <properties/>
-  <testcase name="testCheckUrlInvalid()" classname="Model.DataTest" time="0.015"/>
-  <testcase name="testAddName()" classname="Model.DataTest" time="0.001"/>
+  <testcase name="testCheckUrlInvalid()" classname="Model.DataTest" time="0.026"/>
+  <testcase name="testAddName()" classname="Model.DataTest" time="0.002"/>
   <testcase name="testCheckUrlValid()" classname="Model.DataTest" time="0.001"/>
-  <testcase name="testAddUrlInvalid()" classname="Model.DataTest" time="0.001"/>
-  <testcase name="testAddition()" classname="Model.DataTest" time="0.0"/>
+  <testcase name="testAddUrlInvalid()" classname="Model.DataTest" time="0.002"/>
+  <testcase name="testAddition()" classname="Model.DataTest" time="0.001"/>
   <testcase name="testCheckName()" classname="Model.DataTest" time="0.001"/>
-  <testcase name="testAddUrlValid()" classname="Model.DataTest" time="0.0"/>
+  <testcase name="testAddUrlValid()" classname="Model.DataTest" time="0.001"/>
   <system-out><![CDATA[Wrong URL Format
 Wrong URL Format
 ]]></system-out>

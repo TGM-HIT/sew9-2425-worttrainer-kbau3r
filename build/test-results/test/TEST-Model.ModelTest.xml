@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.ModelTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:21:06" hostname="kbauer-pad" time="0.24">
+  <properties/>
+  <testcase name="testAddData()" classname="Model.ModelTest" time="0.003"/>
+  <testcase name="testCompareDatalist()" classname="Model.ModelTest" time="0.003"/>
+  <testcase name="testAddDataToJson()" classname="Model.ModelTest" time="0.004"/>
+  <testcase name="testGetSpecificData()" classname="Model.ModelTest" time="0.001"/>
+  <testcase name="testRemoveData()" classname="Model.ModelTest" time="0.001"/>
+  <testcase name="testGetRandomData()" classname="Model.ModelTest" time="0.002"/>
+  <testcase name="testReadDataFromJson()" classname="Model.ModelTest" time="0.22"/>
+  <system-out><![CDATA[Data has been written to the file: test.ndjson
+Data has been written to the file: test.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Data has been written to the file: test.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Data has been written to the file: test.ndjson
+Data has been written to the file: test.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Data has been written to the file: test.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Persistence has been cleared: test.ndjson
+Persistence has been cleared: stats.ndjson
+Data has been written to the file: test.ndjson
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

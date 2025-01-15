@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.StatisticsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-01-15T14:21:06" hostname="kbauer-pad" time="0.043">
+  <properties/>
+  <testcase name="testUpdateWrong()" classname="Model.StatisticsTest" time="0.002"/>
+  <testcase name="testParameterizedConstructor()" classname="Model.StatisticsTest" time="0.002"/>
+  <testcase name="testUpdateCorrect()" classname="Model.StatisticsTest" time="0.002"/>
+  <testcase name="testGetStatistics()" classname="Model.StatisticsTest" time="0.021"/>
+  <testcase name="testDefaultConstructor()" classname="Model.StatisticsTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
