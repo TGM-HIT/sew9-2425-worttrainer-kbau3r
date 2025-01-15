@@ -55,7 +55,10 @@ public class Controller {
 
                 if (data.checkName(userInput)) {
                     view.showMessage("Richtig!");
-                    model.getStatistics().update(true);
+                    model.getStatistics().update(true, userInput);
+                    if(model.getStatistics().allAnimalCheck()){
+                        view.showMessage("Sie haben alle Tiere mindestens einmal richtig erraten");
+                    }
                     correctAnswer = true;
                 } else {
                     view.showMessage("Falsch! Versuchen Sie es noch einmal.");

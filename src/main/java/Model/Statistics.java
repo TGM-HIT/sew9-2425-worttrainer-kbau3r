@@ -8,6 +8,7 @@ package Model;
 public class Statistics {
     private int correctAttempts;
     private int wrongAttempts;
+    private boolean[] allAnimal = {false, false, false};
 
     /**
      * Konstruktor, der die Statistik mit 0 richtigen und falschen Versuchen initialisiert.
@@ -54,6 +55,27 @@ public class Statistics {
     public void update(boolean isCorrect) {
         if (isCorrect) {
             correctAttempts++;
+
+        } else {
+            wrongAttempts++;
+        }
+    }
+
+    /**
+     * Aktualisiert die Statistik basierend darauf, ob der Versuch korrekt war.
+     *
+     * @param isCorrect true, wenn der Versuch korrekt war, sonst false
+     */
+    public void update(boolean isCorrect, String userInput) {
+        if (isCorrect) {
+            correctAttempts++;
+            if(userInput.equalsIgnoreCase("hund")) {
+                this.allAnimal[0] = true;
+            } else if (userInput.equalsIgnoreCase("katze")) {
+                this.allAnimal[1] = true;
+            } else {
+                this.allAnimal[2] = true;
+            }
         } else {
             wrongAttempts++;
         }
@@ -66,5 +88,14 @@ public class Statistics {
      */
     public String getStatistics() {
         return "Richtig: " + correctAttempts + ", Falsch: " + wrongAttempts;
+    }
+
+    public boolean allAnimalCheck() {
+        for(boolean bool : this.allAnimal) {
+            if(bool==false) {
+                return false;
+            }
+        }
+        return true;
     }
 }
